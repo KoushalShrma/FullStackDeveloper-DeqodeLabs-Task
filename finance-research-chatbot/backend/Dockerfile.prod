@@ -1,0 +1,43 @@
+# Production Dockerfile for Spring Boot Backend
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+
+WORKDIR /app
+
+# Copy and cache dependencies
+COPY pom.xml ./
+RUN mvn dependency:go-offline -B
+
+# Copy source and build
+COPY src ./src
+RUN mvn clean package -DskipTests -Dmaven.javadoc.skip=true
+
+# Production runtime
+FROM eclipse-temurin:17-jre-alpine
+
+# Add security updates and useful tools
+RUN apk update && apk upgrade && \
+    apk add --no-cache curl dumb-init && \
+    rm -rf /var/cache/apk/*
+
+# Create non-root user
+RUN addgroup -g 1001 spring && \
+    adduser -u 1001 -G spring -s /bin/sh -D spring
+
+WORKDIR /app
+
+# Copy application jar
+COPY --from=build /app/target/*.jar app.jar
+
+# Set ownership and permissions
+RUN chown -R spring:spring /app
+USER spring
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8080/actuator/health || exit 1
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75.0", "-jar", "app.jar"]
+
+EXPOSE 8080

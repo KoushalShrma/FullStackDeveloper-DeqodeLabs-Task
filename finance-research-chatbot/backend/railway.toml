@@ -1,0 +1,4 @@
+# Railway Deployment Configuration
+PORT=8080
+RAILWAY_STATIC_URL=true
+NIXPACKS_BUILDER=maven

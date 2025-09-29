@@ -1,0 +1,342 @@
+# ====================================
+# SENSITIVE DATA - NEVER COMMIT THESE
+# ====================================
+
+# Environment files with secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.prod
+*.env
+
+# Backup environment files
+.env.backup
+.env.*.backup
+
+# API Keys and Secrets
+groq_api_key.txt
+tavily_api_key.txt
+openai_key.txt
+secret_keys/
+secrets/
+*.key
+*.pem
+*.p12
+*.crt
+
+# Database credentials
+database.yml
+db_config.json
+
+# JWT tokens and auth files
+jwt_secret.txt
+auth_tokens/
+*.jwt
+
+# ====================================
+# BACKEND (Spring Boot / Java)
+# ====================================
+
+# Compiled class files
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Spring Boot
+spring-shell.log
+application-*.properties
+application-*.yml
+!application.properties.example
+!application.yml.example
+
+# Logs
+*.log
+logs/
+log/
+*.log.*
+*.out
+
+# ====================================
+# FRONTEND (React / Node.js)
+# ====================================
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build outputs
+build/
+dist/
+.next/
+out/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# ESLint cache
+.eslintcache
+
+# Parcel cache
+.cache/
+.parcel-cache/
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# ====================================
+# DATABASE
+# ====================================
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# MySQL dumps
+*.sql
+mysql_data/
+mysql_dump/
+database_backup/
+
+# PostgreSQL dumps
+*.pgsql
+*.dump
+
+# Database migrations (if contains sensitive data)
+# migrations/
+
+# ====================================
+# DOCKER & CONTAINERIZATION
+# ====================================
+
+# Docker volumes and data
+docker_data/
+mysql_data/
+postgres_data/
+redis_data/
+mongo_data/
+
+# Docker override files
+docker-compose.override.yml
+docker-compose.*.override.yml
+
+# Kubernetes secrets
+k8s-secrets/
+*.yaml.secret
+secrets.yaml
+
+# ====================================
+# DEVELOPMENT TOOLS
+# ====================================
+
+# IDE files
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# ====================================
+# CLOUD & DEPLOYMENT
+# ====================================
+
+# Cloud deployment configs with secrets
+.netlify/
+.vercel/
+.railway/
+railway.toml.secret
+
+# Terraform
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+.terraform/
+
+# AWS
+.aws/
+aws-config.json
+
+# Azure
+.azure/
+azure-config.json
+
+# GCP
+gcp-service-account.json
+google-credentials.json
+
+# ====================================
+# BACKUP & ARCHIVE FILES
+# ====================================
+
+# Backup files
+*.backup
+*.bak
+backup/
+backups/
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+backup_*.zip
+
+# ====================================
+# TESTING & DEBUGGING
+# ====================================
+
+# Test outputs
+test-results/
+coverage-reports/
+allure-results/
+
+# Debug files
+debug.log
+debug/
+*.debug
+
+# Performance testing
+loadtest-results/
+benchmark-results/
+
+# ====================================
+# DOCUMENTATION (SENSITIVE)
+# ====================================
+
+# Documents with sensitive info
+deployment-passwords.md
+production-secrets.md
+api-keys-list.md
+server-credentials.txt
+
+# Private documentation
+private/
+internal/
+confidential/
+
+# User manuals with sensitive data
+admin-guide-with-passwords.pdf
+
+# ====================================
+# MISCELLANEOUS
+# ====================================
+
+# Package lock files (optional - uncomment if needed)
+# package-lock.json
+# yarn.lock
+
+# Editor directories and files
+.vscode/
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local development overrides
+local-config/
+dev-override/
+personal-settings/
+
+# Generated documentation
+docs/generated/
+api-docs/generated/
+
+# SSL certificates
+ssl/
+certificates/
+*.pem
+*.crt
+*.key
+
+# ====================================
+# CUSTOM PROJECT EXCLUSIONS
+# ====================================
+
+# Project-specific sensitive files
+user-data/
+customer-data/
+financial-data/
+research-cache/
+sensitive-reports/
+
+# Large files that shouldn't be in git
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.pdf.large
+*.zip.large
+
+# Development databases with real data
+dev-database-with-real-data/
+sample-data-sensitive/
+
+# ====================================
+# ALLOW THESE IMPORTANT FILES
+# ====================================
+!.env.example
+!.env.template
+!docker-compose.yml
+!Dockerfile
+!README.md
+!.gitignore
